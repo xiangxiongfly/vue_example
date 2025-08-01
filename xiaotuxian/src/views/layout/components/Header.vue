@@ -1,27 +1,26 @@
 <script setup>
+import {getCategoryApi} from "@/api/categery.js";
+import {onMounted, ref} from "vue";
+import HeaderNav from "@/views/layout/components/HeaderNav.vue";
 
+const categoryList = ref([]);
+const getCategory = async () => {
+  const res = await getCategoryApi();
+  categoryList.value = res.result;
+};
+
+onMounted(() => {
+  getCategory();
+});
 </script>
 
 <template>
-  <header class="app-topheader">
+  <header class="app-header">
     <div class="container">
       <h1 class="logo">
         <RouterLink to="/">小兔鲜</RouterLink>
       </h1>
-      <ul class="app-header-nav">
-        <li class="home">
-          <RouterLink to="/">首页</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">居家</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">美食</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">服饰</RouterLink>
-        </li>
-      </ul>
+      <HeaderNav/>
       <div class="search">
         <i class="iconfont icon-search"></i>
         <input type="text" placeholder="搜一搜">
@@ -31,7 +30,7 @@
 </template>
 
 <style scoped>
-.app-topheader {
+.app-header {
   background: #fff;
 
   .container {
@@ -48,37 +47,6 @@
       width: 100%;
       text-indent: -9999px;
       background: url("@/assets/images/logo.png") no-repeat center 18px / contain;
-    }
-  }
-
-  .app-header-nav {
-    width: 820px;
-    display: flex;
-    padding-left: 40px;
-    position: relative;
-    z-index: 998;
-
-    li {
-      margin-right: 40px;
-      width: 38px;
-      text-align: center;
-
-      a {
-        font-size: 16px;
-        line-height: 32px;
-        height: 32px;
-        display: inline-block;
-
-        &:hover {
-          color:$xtxColor;
-          border-bottom: 1px solid $xtxColor;
-        }
-      }
-
-      .active {
-        color:$xtxColor;
-        border-bottom: 1px solid $xtxColor;
-      }
     }
   }
 
