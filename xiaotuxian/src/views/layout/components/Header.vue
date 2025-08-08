@@ -1,17 +1,5 @@
 <script setup>
-import {getCategoryApi} from "@/api/categery.js";
-import {onMounted, ref} from "vue";
 import HeaderNav from "@/views/layout/components/HeaderNav.vue";
-
-const categoryList = ref([]);
-const getCategory = async () => {
-  const res = await getCategoryApi();
-  categoryList.value = res.result;
-};
-
-onMounted(() => {
-  getCategory();
-});
 </script>
 
 <template>
@@ -32,6 +20,8 @@ onMounted(() => {
 <style scoped>
 .app-header {
   background: #fff;
+  display: flex;
+  width:100%;
 
   .container {
     display: flex;

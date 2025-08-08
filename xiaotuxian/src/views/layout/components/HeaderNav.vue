@@ -1,7 +1,7 @@
-<script setup lang="ts">
-import {useCategoryStore} from "@/stores/categoryStore"
+<script setup>
+import {useCategoryStore} from "@/stores/categoryStore";
 
-const categoryStore = useCategoryStore()
+const categoryStore = useCategoryStore();
 </script>
 
 <template>
@@ -14,6 +14,7 @@ const categoryStore = useCategoryStore()
 
 <style scoped lang="scss">
 .app-header-nav {
+  flex:1;
   width: 820px;
   display: flex;
   padding-left: 40px;

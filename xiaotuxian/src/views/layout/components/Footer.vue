@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 
 </script>
 
@@ -18,7 +18,7 @@
           <dd><i class="iconfont icon-weibo"></i>微博</dd>
         </dl>
         <dl>
-          <dt>下载AP</dt>
+          <dt>下载APP</dt>
           <dd class="qrcode"><img src="@/assets/images/qrcode.jpg"/></dd>
           <dd class="download">
             <span>扫描二维码</span>
@@ -31,7 +31,6 @@
           <dd class="hotline">123-123-123 <small>周一至周五 8:00~18:00</small></dd>
         </dl>
       </div>
-
     </div>
     <!-- 其他 -->
     <div class="extra">
@@ -127,49 +126,49 @@
         &:last-child {
           margin-right: 0;
         }
+      }
 
-        .qrcode {
-          width: 92px;
-          height: 92px;
-          padding: 7px;
-          border: 1px solid #ededed;
+      .qrcode {
+        width: 92px;
+        height: 92px;
+        padding: 7px;
+        border: 1px solid #ededed;
+      }
+
+      .download {
+        padding-top: 5px;
+        font-size: 14px;
+        width: auto;
+        height: auto;
+        border: none;
+
+        span {
+          display: block;
         }
 
-        .download {
-          padding-top: 5px;
-          font-size: 14px;
-          width: auto;
-          height: auto;
-          border: none;
-
-          span {
-            display: block;
-          }
-
-          a {
-            display: block;
-            line-height: 1;
-            padding: 10px 25px;
-            margin-top: 5px;
-            color: #fff;
-            border-radius: 2px;
-            background: $xtxColor;
-          }
+        a {
+          display: block;
+          line-height: 1;
+          padding: 10px 25px;
+          margin-top: 5px;
+          color: #fff;
+          border-radius: 2px;
+          background-color: $xtxColor;
         }
+      }
 
-        .hotline {
-          padding-top: 20px;
-          font-size: 22px;
-          color: #666;
-          width: auto;
-          height: auto;
-          border: none;
+      .hotline {
+        padding-top: 20px;
+        font-size: 22px;
+        color: #666;
+        width: auto;
+        height: auto;
+        border: none;
 
-          small {
-            display: block;
-            font-size: 15px;
-            color: #999;
-          }
+        small {
+          display: block;
+          font-size: 15px;
+          color: #999;
         }
       }
     }

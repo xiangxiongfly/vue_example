@@ -1,8 +1,9 @@
-import {createRouter, createWebHistory} from "vue-router";
-import Login from "@/views/login/Login.vue";
+import Category from "@/views/category/Category.vue";
 import Home from "@/views/home/Home.vue";
 import Layout from "@/views/layout/Layout.vue";
-import Category from "@/views/category/Category.vue";
+import Login from "@/views/login/Login.vue";
+import SubCategory from "@/views/subcategory/SubCategory.vue";
+import {createRouter, createWebHistory} from "vue-router";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,8 +12,10 @@ const router = createRouter({
       path: "/",
       component: Layout,
       children: [
+        {path: "", redirect: "/home"},
         {path: "home", component: Home},
-        {path: "category", component: Category},
+        {path: "category/:id", component: Category},
+        {path: "category/sub/:id", component: SubCategory},
       ]
     },
     {
