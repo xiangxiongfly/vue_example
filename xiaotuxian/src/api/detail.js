@@ -9,7 +9,7 @@ export function getDetail(id) {
   });
 }
 
-export function getHotGoodsApi({id, type, limit = 3}) {
+export function getHotGoodsApi(id, type, limit = 3) {
   return request({
     url: "/goods/hot",
     params: {

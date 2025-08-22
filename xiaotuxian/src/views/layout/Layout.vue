@@ -1,5 +1,5 @@
 <script setup>
-import TopNav from "@/views/layout/components/TopNav.vue";
+import HeaderTop from "@/views/layout/components/HeaderTop.vue";
 import Header from "@/views/layout/components/Header.vue";
 import Footer from "@/views/layout/components/Footer.vue";
 import {onMounted} from "vue";
@@ -14,7 +14,7 @@ onMounted(() => {
 
 <template>
   <StickyHeader/>
-  <TopNav/>
+  <HeaderTop/>
   <Header/>
   <RouterView/>
   <Footer/>
