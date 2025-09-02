@@ -126,7 +126,7 @@ watch([elementX, elementY, isOutside], () => {
       cursor: pointer;
 
       &:hover, &.active {
-        border: 2px solid $xtxColor;
+        border: 2px solid $primaryColor;
       }
     }
   }

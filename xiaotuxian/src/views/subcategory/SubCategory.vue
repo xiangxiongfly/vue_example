@@ -11,7 +11,6 @@ const filterData = ref({});
 
 async function getFilterData() {
   const {result} = await getCategoryFilterApi(route.params.id);
-  console.log("getFilterData", result);
   filterData.value = result;
 }
 

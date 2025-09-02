@@ -1,20 +1,51 @@
 <script setup>
-import {getDetail} from "@/api/detail.js";
+import {getGoods} from "@/api/detail.js";
+import {useCartStore} from "@/stores/cartStore.js";
 import HotList from "@/views/detail/components/HotList.vue";
+import {ElMessage} from "element-plus";
 import {onMounted, ref} from "vue";
 import {useRoute} from "vue-router";
 
+const cartStore = useCartStore();
 const route = useRoute();
 const goods = ref({});
 
 async function getGoodsDetail() {
-  const {result} = await getDetail(route.params.id);
+  const {result} = await getGoods(route.params.id);
   goods.value = result;
 }
 
 onMounted(() => {
   getGoodsDetail();
 });
+
+let skuObj = {};
+const onSkuChange = (sku) => {
+  console.log("商品信息", sku);
+  skuObj = sku;
+};
+
+const count = ref(1);
+const onCountChange = (count) => {
+  console.log("商品数量：", count);
+};
+
+function addCart() {
+  if (skuObj.skuId) {
+    cartStore.addCart({
+      id: goods.value.id,
+      name: goods.value.name,
+      picture: goods.value.mainPictures[0],
+      price: goods.value.price,
+      count: count.value,
+      skuId: skuObj.skuId,
+      attrsText: skuObj.specsText,
+      selected: true
+    });
+  } else {
+    ElMessage.warning("请选择规格");
+  }
+}
 </script>
 
 <template>
@@ -23,15 +54,15 @@ onMounted(() => {
       <!--面包屑导航栏-->
       <div class="bread-container">
         <el-breadcrumb separator=">">
-          <el-breadcrumb-item :tp="{path:'/'}">首页</el-breadcrumb-item>
-          <el-breadcrumb-item :tp="{path:`/category/${goods.categories[1].id}`}">
+          <el-breadcrumb-item :to="{path:'/'}">首页</el-breadcrumb-item>
+          <el-breadcrumb-item :to="{path:`/category/${goods.categories[1].id}`}">
             {{ goods.categories[1].name }}
           </el-breadcrumb-item>
-          <el-breadcrumb-item :tp="{path:`/category/${goods.categories[0].id}`}">
+          <el-breadcrumb-item :to="{path:`/category/sub/${goods.categories[0].id}`}">
             {{ goods.categories[0].name }}
           </el-breadcrumb-item>
           <el-breadcrumb-item>
-            抓绒保暖，毛毛虫子儿童运动鞋
+            {{ goods.name }}
           </el-breadcrumb-item>
         </el-breadcrumb>
       </div>
@@ -42,7 +73,6 @@ onMounted(() => {
             <div class="media">
               <!--图片预览器-->
               <XtxImageView/>
-
               <!--统计数量-->
               <ul class="goods-sales">
                 <li>
@@ -73,7 +103,7 @@ onMounted(() => {
               <p class="g-desc">{{ goods.desc }}</p>
               <p class="g-price">
                 <span>{{ goods.oldPrice }}</span>
-                <span> {{ goods.price }} </span>
+                <span>{{ goods.price }}</span>
               </p>
               <div class="g-service">
                 <dl>
@@ -86,17 +116,17 @@ onMounted(() => {
                     <span>无忧退货</span>
                     <span>快速退款</span>
                     <span>免费包邮</span>
-                    <a href="javascript:;">连接详情</a>
+                    <a href="javascript:">连接详情</a>
                   </dd>
                 </dl>
               </div>
               <!--sku组件-->
-
+              <XtxSku :goods="goods" @change="onSkuChange"/>
               <!--数据组件-->
-
+              <el-input-number :min="1" :max="100" v-model="count" @change="onCountChange"/>
               <!--按钮组件-->
               <div>
-                <el-button size="large" class="btn">加入购物车</el-button>
+                <el-button size="large" class="btn" @click="addCart">加入购物车</el-button>
               </div>
             </div>
           </div>
@@ -130,7 +160,6 @@ onMounted(() => {
       </div>
     </div>
   </div>
-
 </template>
 
 <style scoped lang="scss">
@@ -250,13 +279,13 @@ onMounted(() => {
 
             &::before {
               content: "•";
-              color: $xtxColor;
+              color: $primaryColor;
               margin-right: 2px;
             }
           }
 
           a {
-            color: $xtxColor;
+            color: $primaryColor;
           }
         }
       }
@@ -298,13 +327,13 @@ onMounted(() => {
           margin-top: 10px;
 
           i {
-            color: $xtxColor;
+            color: $primaryColor;
             font-size: 14px;
             margin-right: 2px;
           }
 
           &:hover {
-            color: $xtxColor;
+            color: $primaryColor;
             cursor: pointer;
           }
         }

@@ -111,3 +111,24 @@ ul {
 .el-breadcrumb__inner.is-link {
   font-weight: 400 !important;
 }
+
+table{
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.m-top-20 {
+  margin-top: 20px;
+}
+
+.red {
+  color: $priceColor;
+}
+
+.green {
+  color: #1dc779;
+}
+
+.f16{
+  font-size: 16px;
+}

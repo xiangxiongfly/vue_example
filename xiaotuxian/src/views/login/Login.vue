@@ -69,7 +69,7 @@ function doLogin() {
     <section class="login-section">
       <div class="wrapper">
         <nav>
-          <a href="javascript:;">账号登录</a>
+          <a href="javascript:">账号登录</a>
         </nav>
         <div class="account-box">
           <div class="form">
@@ -97,13 +97,13 @@ function doLogin() {
     <footer class="login-footer">
       <div class="container">
         <p>
-          <a href="javascript:;">关于我们</a>
-          <a href="javascript:;">帮助中心</a>
-          <a href="javascript:;">售后服务</a>
-          <a href="javascript:;">配送与验收</a>
-          <a href="javascript:;">商务合作</a>
-          <a href="javascript:;">搜索推荐</a>
-          <a href="javascript:;">友情链接</a>
+          <a href="javascript:">关于我们</a>
+          <a href="javascript:">帮助中心</a>
+          <a href="javascript:">售后服务</a>
+          <a href="javascript:">配送与验收</a>
+          <a href="javascript:">商务合作</a>
+          <a href="javascript:">搜索推荐</a>
+          <a href="javascript:">友情链接</a>
         </p>
         <p>CopyRight &copy; 小兔鲜儿</p>
       </div>
@@ -150,7 +150,7 @@ function doLogin() {
 
     i {
       font-size: 14px;
-      color: $xtxColor;
+      color: $primaryColor;
       letter-spacing: -5px;
     }
   }
@@ -254,7 +254,7 @@ function doLogin() {
 
             &.active,
             &:focus {
-              border-color: $xtxColor
+              border-color: $primaryColor
             }
           }
         }
@@ -285,7 +285,7 @@ function doLogin() {
         color: #fff;
         text-align: center;
         line-height: 40px;
-        background: $xtxColor;
+        background: $primaryColor;
 
         &.disabled {
           background: #cfcdcd;
@@ -310,7 +310,7 @@ function doLogin() {
 }
 
 .sub-btn {
-  background: $xtxColor;
+  background: $primaryColor;
   width: 100%;
   color: #fff;
 }

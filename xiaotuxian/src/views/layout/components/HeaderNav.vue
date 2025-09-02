@@ -5,7 +5,7 @@ const categoryStore = useCategoryStore();
 </script>
 
 <template>
-  <ul class="app-header-nav">
+  <ul class="app-top-bar">
     <li class="home" v-for="item in categoryStore.categoryList" :key="item.id">
       <RouterLink active-class="active" :to="`/category/${item.id}`">{{ item.name }}</RouterLink>
     </li>
@@ -13,7 +13,7 @@ const categoryStore = useCategoryStore();
 </template>
 
 <style scoped lang="scss">
-.app-header-nav {
+.app-top-bar {
   flex:1;
   width: 820px;
   display: flex;
@@ -33,14 +33,14 @@ const categoryStore = useCategoryStore();
       display: inline-block;
 
       &:hover {
-        color: $xtxColor;
-        border-bottom: 1px solid $xtxColor;
+        color: $primaryColor;
+        border-bottom: 1px solid $primaryColor;
       }
     }
 
     .active {
-      color: $xtxColor;
-      border-bottom: 1px solid $xtxColor;
+      color: $primaryColor;
+      border-bottom: 1px solid $primaryColor;
     }
   }
 }

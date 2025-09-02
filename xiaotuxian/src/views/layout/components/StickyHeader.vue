@@ -56,7 +56,7 @@ const {y} = useScroll(window);
       display: flex;
       text-align: center;
       padding-left: 40px;
-      border-left: 2px solid $xtxColor;
+      border-left: 2px solid $primaryColor;
 
       a {
         width: 38px;
@@ -65,12 +65,12 @@ const {y} = useScroll(window);
         line-height: 1;
 
         &:hover {
-          color: $xtxColor;
+          color: $primaryColor;
         }
       }
     }
 
-    .app-header-nav {
+    .app-top-bar {
       width: 820px;
       display: flex;
       padding-left: 40px;
@@ -89,14 +89,14 @@ const {y} = useScroll(window);
           display: inline-block;
 
           &:hover {
-            color: $xtxColor;
-            border-bottom: 1px solid $xtxColor;
+            color: $primaryColor;
+            border-bottom: 1px solid $primaryColor;
           }
         }
 
         .active {
-          color: $xtxColor;
-          border-bottom: 1px solid $xtxColor;
+          color: $primaryColor;
+          border-bottom: 1px solid $primaryColor;
         }
       }
     }

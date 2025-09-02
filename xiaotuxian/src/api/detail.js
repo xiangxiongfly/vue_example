@@ -1,6 +1,6 @@
 import request from "@/utils/http.js";
 
-export function getDetail(id) {
+export function getGoods(id) {
   return request({
     url: "goods",
     params: {

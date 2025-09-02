@@ -87,7 +87,7 @@ const {categoryData} = useCategory();
           font-size: 16px;
 
           &:hover {
-            color: $xtxColor;
+            color: $primaryColor;
           }
 
           img {

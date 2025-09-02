@@ -1,4 +1,5 @@
 <script setup>
+import HeaderCart from "@/views/layout/components/HeaderCart.vue";
 import HeaderNav from "@/views/layout/components/HeaderNav.vue";
 </script>
 
@@ -13,6 +14,7 @@ import HeaderNav from "@/views/layout/components/HeaderNav.vue";
         <i class="iconfont icon-search"></i>
         <input type="text" placeholder="搜一搜">
       </div>
+      <HeaderCart/>
     </div>
   </header>
 </template>
@@ -21,7 +23,7 @@ import HeaderNav from "@/views/layout/components/HeaderNav.vue";
 .app-header {
   background: #fff;
   display: flex;
-  width:100%;
+  width: 100%;
 
   .container {
     display: flex;
@@ -57,7 +59,6 @@ import HeaderNav from "@/views/layout/components/HeaderNav.vue";
       padding-left: 5px;
       color: #666;
     }
-
   }
 }
 </style>

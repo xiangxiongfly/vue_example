@@ -5,8 +5,8 @@ import {ref} from "vue";
 export const useUserStore = defineStore("userStore", () => {
   const userInfo = ref({});
 
-  async function getUserInfo(accout, password) {
-    const {result} = await loginApi(accout, password);
+  async function getUserInfo(account, password) {
+    const {result} = await loginApi(account, password);
     userInfo.value = result;
   }
 

@@ -1,10 +1,10 @@
 <script setup>
-import HeaderTop from "@/views/layout/components/HeaderTop.vue";
-import Header from "@/views/layout/components/Header.vue";
-import Footer from "@/views/layout/components/Footer.vue";
-import {onMounted} from "vue";
 import {useCategoryStore} from "@/stores/categoryStore";
+import Footer from "@/views/layout/components/Footer.vue";
+import Header from "@/views/layout/components/Header.vue";
 import StickyHeader from "@/views/layout/components/StickyHeader.vue";
+import TopBar from "@/views/layout/components/TopBar.vue";
+import {onMounted} from "vue";
 
 const categoryStore = useCategoryStore();
 onMounted(() => {
@@ -14,7 +14,7 @@ onMounted(() => {
 
 <template>
   <StickyHeader/>
-  <HeaderTop/>
+  <TopBar/>
   <Header/>
   <RouterView/>
   <Footer/>
