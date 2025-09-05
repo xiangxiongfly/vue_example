@@ -1,8 +1,10 @@
 <script setup>
 import {createOrderApi, getOrderInfoApi} from "@/api/checkout.js";
+import {useCartStore} from "@/stores/cartStore.js";
 import {onMounted, ref} from "vue";
 import {useRouter} from "vue-router";
 
+const cartStore = useCartStore();
 const router = useRouter();
 const showDialog = ref(false);
 const orderInfo = ref({});
@@ -40,6 +42,7 @@ async function createOrder() {
       id: orderId,
     }
   });
+  cartStore.updateCartList();
 }
 
 function confirm() {

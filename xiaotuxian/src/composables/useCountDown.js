@@ -4,9 +4,9 @@ import {computed, onUnmounted, ref} from "vue";
 export function useCountDown() {
   let timer = null;
   const time = ref(0);
-  const formatTime = computed(() => {
-    dayjs.unix(time.value).format("mm分ss秒");
-  });
+
+  const formatTime = computed(() => dayjs.unix(time.value).format("mm分ss秒"));
+
   const start = (currentTime) => {
     time.value = currentTime;
     timer = setInterval(() => {
